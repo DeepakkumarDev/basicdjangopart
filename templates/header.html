@@ -1,0 +1,20 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %} ">
+    <header>
+        <h1>Welcome to Our Website</h1>
+        <nav>
+            <ul>
+                <liclass="{% if request.path == '/' %} active {% endif %}" ><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'aboutus' %}"> Aboutuse</a></li>
+                <li><a href="{% url 'service' %}">Service</a></li>
+                <li><a href="{% url 'contactus' %}">Contact us</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about-us/">About</a></li>
+                <li><a href="/service/">Services</a></li>
+                <li><a href="/contact-us/">Contact</a></li>
+            </ul>
+        </nav>
+</header>

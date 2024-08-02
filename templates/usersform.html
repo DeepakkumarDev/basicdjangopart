@@ -1,0 +1,19 @@
+{% load static %}
+{% include "header.html" %}
+<head>
+    <link rel="stylesheet" href="styles/services.css">
+</head>
+<body>
+
+    <main>
+     <form action="{% url 'submitform' %}" method="post">
+            {% csrf_token %}
+            {% comment %} {{ form }} {% endcomment %}
+            {{ form.as_p }} <!-- Render form fields as paragraphs -->
+            <button type="submit"> Submit </button>
+    </form>
+
+    </main>
+ 
+</body>
+{% include "footer.html" %}

@@ -14,7 +14,107 @@
     <body>
         <div class="main">  {{ bdata }} </div>
         <div class="main">  {{ clist }} </div>
-        
+        {% for n in clist %}
+        <div>{{ n }}</div>
+        {% endfor %}
+        {% for n in clist %}
+        <div>{{ forloop.counter }} {{ n }}</div>
+        {% endfor %}
+
+        {% for n in clist %}
+        <div>{{ forloop.counter0 }} {{ n }}</div>
+        {% endfor %}
+        {% for n in clist %}
+        <div>{{ forloop.revcounter }} {{ n }}</div>
+        {% endfor %}
+        {% for n in clist %}
+        <div>{{ forloop.revcounter0 }} {{ n }}</div>
+        {% endfor %}        
+
+        {% for n in clist %}
+        <div>{{ forloop.first }} {{ n }}</div>
+        {% endfor %}
+
+        {% for n in clist %}
+        <div>{{ forloop.last }} {{ n }}</div>
+        {% endfor %}
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+        </tr>
+        {% for d in students_details %}
+        <tr>
+            <td>{{ d.name }}</td>
+            <td>{{ d.phone }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% for n in numbers %}
+        {% if n > 20 %}
+            <div>{{ n }}</div>
+        {% endif %}
+
+    {% endfor %}
+    
+    {% if numbers|length > 0 %}
+        {% for n in numbers %}
+            {% if n == 10 %}
+                <div>{{ n }}</div>
+            {% endif %}
+
+        {% endfor %}
+    {% else %}
+        No Data 
+    {% endif %}
+
+
+    {% if numbers|length > 0 %}
+    {% for n in numbers %}
+        {% if n|divisibleby:2 and n == 20 %}
+            <div>{{ n }}</div>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    No Data
+{% endif %}
+
+
+{% if numbers|length > 0 %}
+    {% for n in numbers %}
+        {% if n|divisibleby:2 and n == 20 %}
+            <div>{{ n }}</div>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    No Data
+{% endif %}
+
+
+
+{% load custom_filters %}
+
+{% if numbers|length > 0 %}
+    {% for n in numbers %}
+        <!-- Multiplication by 2 -->
+        <div>Multiplied by 2: {{ n|mul:2 }}</div>
+
+        <!-- Subtraction of 2 -->
+        <div>Subtracted by 2: {{ n|sub:2 }}</div>
+
+        <!-- Addition of 2 -->
+        <div>Added 2: {{ n|add:2 }}</div>
+
+        <!-- Integer Division by 2 -->
+        <div>Integer division by 2: {{ n|div:2 }}</div>
+    {% endfor %}
+{% else %}
+    No Data
+{% endif %}
+
+
+
 
     </body>
 </html>
